@@ -8,12 +8,13 @@
     <div class="col-12 mt-4 mt-lg-3 col-lg-6">
       <%= form_tag "/quizzes" do %>
         <%= hidden_field_tag :pokemon_id, @pokemon.id %>
+        <% Rails.logger.info "QUESTIONS FOR POKEMON: #{@pokemon.id}"%>
         <% @questions.each do |question| %>
           <div class="mb-3">
             <label for="question_<%= question.question_type %>"><%= question.description %></label>
-            <% Rails.logger.debug "QUESTION: #{question.description}" %>
+            <% Rails.logger.info "QUESTION: #{question.description}" %>
             <% answers = generate_answers(question.question_type, @pokemon_list, @abilities, @types) %>
-            <% Rails.logger.debug "ANSWERS: #{answers}" %>
+            <% Rails.logger.info "ANSWERS: #{answers}" %>
             <select id="question_<%= question.question_type %>" name="question[<%= question.question_type %>]" class="form-control">
               <% (answers || []).each do |answer| %>
                 <option value="<%= answer %>"><%= answer%></option>
