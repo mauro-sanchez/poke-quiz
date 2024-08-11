@@ -1,6 +1,4 @@
 class QuizzesController < ApplicationController
-  skip_before_action :is_not_logged
-
   def new
     @quiz = Quiz.new
     @questions = Question.order('RANDOM()').limit(5)
