@@ -1,0 +1,171 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+
+body {
+  background-image: image-url("pokeball_icon.svg");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  background-repeat: no-repeat;
+}
+
+.main-card {
+  margin-top: 90px;
+  .card-header {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+  .brand {
+    width: fit-content;
+    margin: 0 auto;
+  }
+  .pokemon-logo {
+    margin: 20px auto;
+  }
+  h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+}
+
+.pokemon-bg {
+  background-image: image-url("pokeball-logo2.png");
+  background-size: cover;
+  background-blend-mode: luminosity;
+  position: relative;
+  margin: 0 auto;
+  background-position: center;
+  width: calc(100% - 20px);
+  height: 100%;
+  position: absolute;
+  z-index: 10;
+  filter: blur(5px);
+}
+
+.img-fluid {
+  z-index: 11;
+  position: relative;
+}
+
+.color-type {
+  &-normal {
+    background-color: var(--normal-light);
+  }
+
+  &-fire {
+    background-color: var(--fire-light);
+  }
+
+  &-water {
+    background-color: var(--water-light);
+  }
+
+  &-electric {
+    background-color: var(--electric-light);
+  }
+
+  &-grass {
+    background-color: var(--grass-light);
+  }
+
+  &-ice {
+    background-color: var(--ice-light);
+  }
+
+  &-fighting {
+    background-color: var(--fighting-light);
+  }
+
+  &-poison {
+    background-color: var(--poison-light);
+  }
+
+  &-ground {
+    background-color: var(--ground-light);
+  }
+
+  &-flying {
+    background-color: var(--flying-light);
+  }
+
+  &-psychic {
+    background-color: var(--psychic-light);
+  }
+
+  &-bug {
+    background-color: var(--bug-light);
+  }
+
+  &-rock {
+    background-color: var(--rock-light);
+  }
+
+  &-ghost {
+    background-color: var(--ghost-light);
+  }
+
+  &-dragon {
+    background-color: var(--dragon-light);
+  }
+
+  &-dark {
+    background-color: var(--dark-light);
+  }
+
+  &-steel {
+    background-color: var(--steel-light);
+  }
+
+  &-fairy {
+    background-color: var(--fairy-light);
+  }
+}
+
+.quiz-result {
+  text-align: center;
+
+  .score {
+    font-weight: 600;
+    font-size: 28px;
+  }
+
+  .score-feedback {
+    font-size: 18px;
+  }
+
+}
+
+@media (min-width: 768px) {
+  body {
+    background-position: 450px;
+  }
+
+  .main-card {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    .pokemon-logo {
+      height: 180px;
+    }
+    h1 {
+      font-size: 36px;
+    }
+  }
+}

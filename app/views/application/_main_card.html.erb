@@ -1,0 +1,13 @@
+<div class="card main-card">
+  <div class="card-header">
+    <div class="d-flex flex-column">
+      <%= link_to root_path, class: "brand" do %>
+        <%= image_tag "pokemon_logo.svg", class: "pokemon-logo img-fluid" %>
+      <% end%>
+      <h1 class="my-3">Test your knowledge!</h1>
+    </div>
+  </div>
+  <div class="card-body">
+    <%= yield %>
+  </div>
+</div>

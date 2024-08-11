@@ -1,0 +1,16 @@
+<% flash.each do |type, msg| %>
+  <% if type != "timedout" && msg.present? %>
+    <div class="alert <%= bootstrap_class_for_flash(type) %> fade show pr-5" id="flash-message">
+      <% if msg.is_a?(Array) %>
+        <ul>
+          <% msg.each do |m| %>
+            <li><%= m %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <%= msg %>
+      <% end %>
+      <button type="button" class="btn-close" aria-label="Close"  data-bs-dismiss="alert" id="flash-close"></button>
+    </div>
+  <% end %>
+<% end %>

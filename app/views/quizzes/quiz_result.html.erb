@@ -1,0 +1,23 @@
+<%= content_for :title, "Results!" %>
+<%= render layout: 'quiz_card' do %>
+  <div class="quiz-result">
+    <p class="score">You got a score of <%= @quiz.score %> out of 5</p>
+    <p class="score-feedback"><%= generate_text_from_score(@quiz.score) %></p>
+    <div class="d-flex flex-wrap justify-content-around align-content-center mb-2 mt-5">
+      <div class="col-auto mb-3">
+        <%= link_to "Take another quiz!", new_quiz_path, id: "new_quiz_btn", class: "btn btn-danger no-a" %>
+      </div>
+      <div class="col-auto">
+        <%= link_to "Take me home!", root_path, class: "ms-3" %>
+      </div>
+    </div>
+  </div>
+<% end%>
+
+<%= javascript_tag defer: 'defer' do -%>
+  var new_quiz_btn = document.getElementById('new_quiz_btn')
+  new_quiz_btn.onclick=function(){
+    new_quiz_btn.classList.add("disabled");
+    new_quiz_btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Generating new quiz...'
+  }
+<% end%>

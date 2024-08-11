@@ -1,0 +1,13 @@
+<%= render layout: 'main_card' do %>
+  <p class="">Do you think you have enough knowledge about Pokemon? Take the quiz and find out!</p>
+  <p>This test consists of 5 questions about a Pokémon, try your knowledge</p>
+  <%= link_to "Lets go!", new_quiz_path, id: "new_quiz_btn", class: "btn btn-danger", data: { disable_with: "Generating quiz" } %>
+<% end %>
+
+<%= javascript_tag defer: 'defer' do -%>
+  var new_quiz_btn = document.getElementById('new_quiz_btn')
+  new_quiz_btn.onclick=function(){
+    new_quiz_btn.classList.add("disabled");
+    new_quiz_btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Generating new quiz...'
+  }
+<% end%>

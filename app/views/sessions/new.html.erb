@@ -1,0 +1,14 @@
+<%= render layout: 'main_card' do %>
+  <%= form_with url: sessions_path do |f| %>
+    <div class="mb-3">
+      <%= f.label :email, "Email address", class: "form-label", autocomplete: "email" %>
+      <%= f.email_field :email, required: true, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :password, "Password", class: "form-label" %>
+      <%= f.password_field :password, required: true, class: "form-control", autocomplete: "current-password" %>
+    </div>
+    <%= f.submit "Sign In!", class: "btn btn-danger" %>
+    <%= link_to "Need an account?", new_user_path, class: "ms-3" %>
+  <% end %>
+<% end %>

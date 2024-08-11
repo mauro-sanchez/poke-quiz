@@ -1,24 +1,32 @@
-# README
+## PokeQuiz
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Test your Poké-knowledge, test yourself.
 
-Things you may want to cover:
+To run this app, you'll need:
 
-* Ruby version
+* Ruby 3.2.4
 
-* System dependencies
+* Postgres ^12
 
-* Configuration
+And run this commands
 
-* Database creation
+* `bundle install`
 
-* Database initialization
+* `rails db:setup`
 
-* How to run the test suite
+* `rails s`
 
-* Services (job queues, cache servers, search engines, etc.)
+# Check users answers
 
-* Deployment instructions
+You can check user answers locally in `/api/v1/quizzes.json`
 
-* ...
+# Next updates;
+
+* Check your wrong answers after submitting
+* List of all quizzes and their scores
+* After PokeApi fix Sword and Shield pokémons, they will be added to the quiz
+* Save your quiz answers, now only saves score
+* Share to Social Media your score
+* Internationalization (through i18n), for spanish language
+* Add Pokémon Techniques to the quiz, and their methods to learn
+* Multiple pokémon Quiz
