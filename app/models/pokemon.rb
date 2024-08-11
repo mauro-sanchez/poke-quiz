@@ -82,7 +82,7 @@ class Pokemon < PokeModel
       evolution_chain.base.name
     else
       first_evol = evolution_chain.evolutions.find { |first_evol| first_evol.evolutions.map(&:name).include? name }
-      first_evol.name
+      first_evol&.name
     end
   end
 
