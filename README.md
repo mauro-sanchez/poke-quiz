@@ -1,4 +1,4 @@
-## PokeQuiz
+# PokeQuiz
 
 Test your Poké-knowledge, test yourself.
 
@@ -16,11 +16,11 @@ And run this commands
 
 * `rails s`
 
-# Check users answers
+## Check users answers (API)
 
 You can check user answers locally in `/api/v1/quizzes.json`
 
-# Next updates;
+## Next updates
 
 * Check your wrong answers after submitting
 * List of all quizzes and their scores
