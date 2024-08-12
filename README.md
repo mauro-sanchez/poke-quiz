@@ -28,6 +28,7 @@ Functionality:
 * Save your quiz answers, now only saves score
 * Share to Social Media your score
 * Internationalization (through i18n), for spanish language
+* Add fullscreen spinner (instead of button spinner)
 
 Quiz:
 * Questions added:
