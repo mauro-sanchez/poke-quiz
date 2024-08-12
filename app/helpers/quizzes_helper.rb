@@ -20,13 +20,15 @@ module QuizzesHelper
       list.push(pokemon_array.first.evolves_from || "Doesn't have pre-evolution")
       list.shuffle.map(&:capitalize)
     when 'height'
-      pokemon_array.map(&:height).map do |h|
+      list = pokemon_array.map(&:height).map do |h|
         "#{number_with_precision(h * 0.1, precision: 2, strip_insignificant_zeros: true)} m"
       end
+      list.shuffle
     when 'weight'.shuffle
-      pokemon_array.map(&:weight).map do |w|
+      list = pokemon_array.map(&:weight).map do |w|
         "#{number_with_precision(w * 0.1, precision: 2, strip_insignificant_zeros: true)} kg"
-      end.shuffle
+      end
+      list.shuffle
     when 'flavor_text'
       Rails.logger.info "FLAVOR TEXTS #{pokemon_array}"
       pokemon_array.map(&:flavor_text).shuffle
