@@ -6,6 +6,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  ##
+  # The `create` function creates a new user, sets the session user ID if the user is valid, and
+  # redirects with success or error messages accordingly.
   def create
     @user = User.create(user_params)
     if @user.valid?

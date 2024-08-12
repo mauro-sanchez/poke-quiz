@@ -3,6 +3,18 @@ module QuizzesHelper
     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/#{id}.png"
   end
 
+  ##
+  # The function `generate_answers` takes in parameters such as type, pokemon_array, abilities, and
+  # types, and returns specific information based on the type specified.
+  #
+  # Args:
+  #   type: The `type` parameter in the `generate_answers` method determines what kind of information
+  # should be generated for the given input. The possible values for the `type` parameter are: name,
+  # abilities, types, height, weight, flavor text, pokedex number, category, and evolution
+  # details (evolves_to and evolves_from)
+  #   pokemon_array: Array of Pokémon objects. Each Pokémon object contains information.
+  #   abilities: Array containing different abilities of Pokémon.
+  #   types: Array containing different types of Pokémon.
   def generate_answers(type, pokemon_array, abilities, types)
     case type
     when 'ability'
@@ -33,9 +45,17 @@ module QuizzesHelper
       list = ([*1..800] - [pokemon_array.first.pokedex_number]).sample(4)
       list.push pokemon_array.first.pokedex_number
       list.shuffle
+    when 'category'
+      pokemon_array.map(&:category).shuffle
     end
   end
 
+  ##
+  # The function `generate_text_from_score` takes a score as input and returns a corresponding message
+  # based on the score in relation to Pokémon proficiency.
+  #
+  # Args:
+  #   score: The `generate_text_from_score` method takes a `score` as input and returns a message
   def generate_text_from_score(score)
     case score
     when 0

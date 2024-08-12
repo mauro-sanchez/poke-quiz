@@ -1,4 +1,7 @@
 class QuizzesController < ApplicationController
+  ##
+  # The `new` function initializes variables for a quiz, including questions, a random Pokemon list,
+  # and types and abilities for the Pokemon based on the quiz questions.
   def new
     @quiz = Quiz.new
     @questions = Question.order('RANDOM()').limit(5)
@@ -12,6 +15,8 @@ class QuizzesController < ApplicationController
     @abilities = Ability.generate_random(@pokemon_list.map(&:abilities).flatten, @pokemon.abilities, 4)
   end
 
+  ##
+  # This Ruby function creates a quiz based on user answers and calculates a score for the quiz.
   def create
     answers = answers_params
     pokemon_id = params.fetch(:pokemon_id, nil)

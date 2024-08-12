@@ -1,5 +1,7 @@
 class Question < ApplicationRecord
   include ActionView::Helpers::NumberHelper
+  # This Ruby code defines a class method `check_answer` inside the `Question` class. This method
+  # takes three arguments: `pokemon`, `type`, and `answer`.
   def self.check_answer(pokemon, type, answer)
     case type
     when 'ability'
@@ -30,6 +32,8 @@ class Question < ApplicationRecord
       pokemon.flavor_text == answer
     when 'pokedex_number'
       pokemon.pokedex_number == answer
+    when 'category'
+      pokemon.category == answer
     end
   end
 end
