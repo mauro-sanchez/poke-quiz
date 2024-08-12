@@ -23,12 +23,13 @@ module QuizzesHelper
       pokemon_array.map(&:height).map do |h|
         "#{number_with_precision(h * 0.1, precision: 2, strip_insignificant_zeros: true)} m"
       end
-    when 'weight'
+    when 'weight'.shuffle
       pokemon_array.map(&:weight).map do |w|
         "#{number_with_precision(w * 0.1, precision: 2, strip_insignificant_zeros: true)} kg"
-      end
+      end.shuffle
     when 'flavor_text'
-      pokemon_array.map(&:flavor_text)
+      Rails.logger.info "FLAVOR TEXTS #{pokemon_array}"
+      pokemon_array.map(&:flavor_text).shuffle
     when 'pokedex_number'
       list = ([*1..800] - [pokemon_array.first.pokedex_number]).sample(4)
       list.push pokemon_array.first.pokedex_number
