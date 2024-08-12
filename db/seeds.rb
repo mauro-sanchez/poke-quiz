@@ -16,7 +16,7 @@
   { description: 'Height of this pokémon?', question_type: :height },
   { description: 'Weight of this pokémon', question_type: :weight },
   { description: 'Type of this pokémon?', question_type: :type },
-  { description: 'Pokédex flavor text', question_type: :description },
+  { description: 'Pokédex flavor text', question_type: :flavor_text },
   { description: 'National Pokédex number', question_type: :pokedex_number }
 ].each do |question|
   Question.find_or_create_by!(question_type: question[:question_type]) do |new_question|

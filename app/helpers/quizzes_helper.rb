@@ -28,7 +28,6 @@ module QuizzesHelper
         "#{number_with_precision(w * 0.1, precision: 2, strip_insignificant_zeros: true)} kg"
       end.shuffle
     when 'flavor_text'
-      Rails.logger.info "FLAVOR TEXTS #{pokemon_array}"
       pokemon_array.map(&:flavor_text).shuffle
     when 'pokedex_number'
       list = ([*1..800] - [pokemon_array.first.pokedex_number]).sample(4)
