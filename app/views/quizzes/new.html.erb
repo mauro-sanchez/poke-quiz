@@ -15,7 +15,7 @@
             <% Rails.logger.info "QUESTION: #{question.description}" %>
             <% answers = generate_answers(question.question_type, @pokemon_list, @abilities, @types) %>
             <% Rails.logger.info "ANSWERS: #{answers}" %>
-            <select id="question_<%= question.question_type %>" name="question[<%= question.question_type %>]" class="form-control">
+            <select id="question_<%= question.question_type %>" name="question[<%= question.question_type %>]" class="form-select">
               <% (answers || []).each do |answer| %>
                 <option value="<%= answer %>"><%= answer%></option>
               <% end %>
