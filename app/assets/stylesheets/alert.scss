@@ -1,6 +1,7 @@
 .alert {
   position: fixed !important;
   top: 20px;
+  z-index: 100;
 
   .btn-close:focus {
     box-shadow: none;

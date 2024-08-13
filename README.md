@@ -20,6 +20,21 @@ And run this commands
 
 You can check user scores locally in `/api/v1/quizzes.json`
 
+## Testing (Rspec)
+This app uses Rspec for testing. Run `rspec` o `bundle exec rspec` command and wait for the test suite to run.
+It features:
+- Tests for the DB models
+- Tests for Pokémon Model
+- Tests for controllers
+- Tests for user features (sign in, sign out)
+- Tests for quiz features (take quiz)
+
+The next gems were used:
+- Rspec was preferred over MiniTest
+- FactoryBot (previously FactoryGirl), to create data in the Test Database
+- DatabaseCleaner, to clean data after tests
+- Shoulda, to make easier assertions
+
 ## Next updates
 
 Functionality:
