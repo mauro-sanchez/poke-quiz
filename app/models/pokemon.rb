@@ -56,7 +56,7 @@ class Pokemon < PokeModel
   ##
   # The `is_base?` function checks if the current Pokémon is the base of an evolution chain.
   def is_base?
-    evolution_chain.base.name == name
+    evolution_chain.base.name == name.downcase
   end
 
   ##

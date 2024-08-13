@@ -8,7 +8,7 @@
       <%= f.label :password, "Password", class: "form-label" %>
       <%= f.password_field :password, required: true, class: "form-control", autocomplete: "current-password" %>
     </div>
-    <%= f.submit "Sign In!", class: "btn btn-danger" %>
+    <%= f.submit "Sign In!", class: "btn btn-danger", id: "signin_button" %>
     <%= link_to "Need an account?", new_user_path, class: "ms-3" %>
   <% end %>
 <% end %>

@@ -12,7 +12,7 @@
       <%= f.label :password, "Password", class: "form-label" %>
       <%= f.password_field :password, required: true, class: "form-control", autocomplete: "current-password" %>
     </div>
-    <%= f.submit "Create account", class: "btn btn-danger" %>
+    <%= f.submit "Create account", class: "btn btn-danger", id: "create_account_btn" %>
     <%= link_to "Already have an account?", new_session_path, class: "ms-3" %>
   <% end %>
 <% end %>
