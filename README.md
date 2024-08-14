@@ -34,6 +34,7 @@ The next gems were used:
 - FactoryBot (previously FactoryGirl), to create data in the Test Database
 - DatabaseCleaner, to clean data after tests
 - Shoulda, to make easier assertions
+- Simplecov, to test code coverage
 
 ## Next updates
 
