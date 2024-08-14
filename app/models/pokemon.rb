@@ -69,7 +69,7 @@ class Pokemon < PokeModel
   # This Ruby function checks if the current Pokémon is the first evolution in its evolution chain.
   def is_first_evol?
     if has_first_evol?
-      evolution_chain.evolutions.map(&:name).include? name
+      evolution_chain.evolutions.map(&:name).include? name.downcase
     else
       false
     end
@@ -86,15 +86,6 @@ class Pokemon < PokeModel
   end
 
   ##
-  # The function `is_second_evol?` checks if the current Pokemon has a second evolution in its
-  # evolution chain.
-  def is_second_evol?
-    return unless has_second_evol?
-
-    evolution_chain.evolutions.map(&:evolutions).flatten.map(&:name).include? name
-  end
-
-  ##
   # This Ruby function determines the previous evolution of a Pokémon based on its evolution chain.
   def evolves_from
     if is_base?
@@ -102,7 +93,9 @@ class Pokemon < PokeModel
     elsif is_first_evol?
       evolution_chain.base.name
     else
-      first_evol = evolution_chain.evolutions.find { |first_evol| first_evol.evolutions.map(&:name).include? name }
+      first_evol = evolution_chain.evolutions.find do |first_evol|
+        first_evol.evolutions.map(&:name).include? name.downcase
+      end
       first_evol&.name
     end
   end
@@ -113,7 +106,7 @@ class Pokemon < PokeModel
     if is_base? && has_first_evol?
       evolution_chain.evolutions.map(&:name)
     elsif is_first_evol? && has_second_evol?
-      evolution_chain.evolutions.find { |first_evol| first_evol.name == name }.evolutions.map(&:name)
+      evolution_chain.evolutions.find { |first_evol| first_evol.name == name.downcase }.evolutions.map(&:name)
     else
       []
     end

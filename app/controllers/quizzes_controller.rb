@@ -2,6 +2,7 @@ class QuizzesController < ApplicationController
   ##
   # The `new` function initializes variables for a quiz, including questions, a random Pokemon list,
   # and types and abilities for the Pokemon based on the quiz questions.
+  # Types and Abilities are not created if the random questions doesn't include types and abilities
   def new
     @quiz = Quiz.new
     @questions = Question.order('RANDOM()').limit(5)
@@ -10,9 +11,7 @@ class QuizzesController < ApplicationController
     @types = []
     @abilities = []
     @types = PokemonType.generate_random(@pokemon.types, 4) if @questions.map(&:question_type).include? 'type'
-    return unless @questions.map(&:question_type).include? 'ability'
-
-    @abilities = Ability.generate_random(@pokemon_list.map(&:abilities).flatten, @pokemon.abilities, 4)
+    @abilities = Ability.generate_random(@pokemon_list.map(&:abilities).flatten, @pokemon.abilities, 4) if @questions.map(&:question_type).include? 'ability'
   end
 
   ##
