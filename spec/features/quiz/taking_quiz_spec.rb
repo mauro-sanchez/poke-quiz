@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Take quiz!', type: :feature do
   scenario 'Answering a test with random answers, should redirect to Quiz result' do
     fill_questions
-    create_and_signin
+    create_and_sign_in
     expect(page).to have_content 'Taking quiz for this pokemon!'
     # Ensure that selects loaded correctly, when there isn't answers there isn't select tags, and in this page, select tags have .form-select class
     expect(page).to have_css '.form-select'
